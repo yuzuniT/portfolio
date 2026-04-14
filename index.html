@@ -581,14 +581,29 @@
 
         <div style="margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--border);">
           <p class="work-section-label">工夫した点・苦労した点</p>
-          <ul class="work-features" style="margin-bottom: 0;">
-            <ul>
-              <li><strong>注文フローにおけるデータ整合性の確保</strong>：カートへの追加→注文内容確認→注文確定という一連のフローの実装はECサイトの核とも言える部分であるため、細心の注意を払い設計しました。<br>最初はセッションやデータベース間でのデータの受け渡し方法がつかめず、処理の流れを図に書き起こしながら整理することで理解を深めました。</li>
-              <li><strong>Livewire採用によるインタラクティブなUIの実装</strong>：Livewireを採用したきっかけは、参考にした書籍「PHPフレームワーク Laravel入門 第3版」で学習したLivewireの挙動に感銘を受けたことです。<br>「JavaScriptを使わなくてもこんなリアクティブなものを実現できるんだ！」と感動し当アプリにも取り入れてみたものの、最初のうちはイベントフックなど新しく学んだ概念に慣れず四苦八苦していました。しかし、その都度インターネット上の他の方の実装例を参考にしたり、Claudeに相談することで乗り越えてきました。</li>
-              <li><strong>商用サービスを想定した網羅的なテスト設定</strong>：単に機能を実装して終わりにするのではなく、実際の商用サービスを想定してテスト仕様書を作成し、5つの主要機能（商品関連、カート、注文、認証、お問い合わせ）にわたる網羅的なテストを実施しました。<br>正常な操作だけでなく、「在庫数を超えるカート投入」や「URLのページ番号に無効な値を入力」、さらには「検索窓へのスクリプト入力」といった異常系やセキュリティを意識したテストケースを設計・実行しました。また、それぞれのテストケースでスクリーンショットを証跡として残しています。</li>
-              <li><strong>Issueベース開発</strong>：実装したい機能や改善点が頭の中で散漫になりがちだったため、 GitHubのIssue機能をTodoリストとして活用する開発フローを取り入れました。<br>個人開発ではありますが、就職後のチーム開発を見越してIssue・Pull Requestを使った開発を意識的に経験するようにしました。</li>
-            </ul>
-          </ul>
+          <dl style="margin: 0;">
+
+            <div style="border: 1px solid var(--border); margin-bottom: 1px; padding: 1rem 1.2rem;">
+              <dt style="font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem;">注文フローにおけるデータ整合性の確保</dt>
+              <dd style="font-size: 0.88rem; color: #555; line-height: 1.75; margin: 0;">カートへの追加→注文内容確認→注文確定という一連のフローはECサイトの核とも言える部分であるため、細心の注意を払い設計しました。最初はセッションやデータベース間でのデータの受け渡し方法がつかめず、処理の流れを図に書き起こしながら整理することで理解を深めました。</dd>
+            </div>
+
+            <div style="border: 1px solid var(--border); border-top: none; margin-bottom: 1px; padding: 1rem 1.2rem;">
+              <dt style="font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem;">LivewireによるインタラクティブなUIの実装</dt>
+              <dd style="font-size: 0.88rem; color: #555; line-height: 1.75; margin: 0;">書籍でLivewireの挙動に感銘を受けたことがきっかけで採用しました。「JavaScriptを使わなくてもリアクティブなUIが実現できる」と感動し取り入れたものの、最初はイベントフックなど新しい概念に慣れず苦労しました。その都度他の方の実装例を調査しながら乗り越えました。</dd>
+            </div>
+
+            <div style="border: 1px solid var(--border); border-top: none; margin-bottom: 1px; padding: 1rem 1.2rem;">
+              <dt style="font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem;">商用サービスを想定した網羅的なテスト</dt>
+              <dd style="font-size: 0.88rem; color: #555; line-height: 1.75; margin: 0;">単に機能を実装して終わりにするのではなく、5つの主要機能（商品・カート・注文・認証・お問い合わせ）にわたるテスト仕様書を作成し網羅的なテストを実施しました。正常系だけでなく「在庫数を超えるカート投入」「URLへの無効な値の入力」「検索窓へのスクリプト入力」など異常系・セキュリティを意識したテストケースも設計・実行しました。</dd>
+            </div>
+
+            <div style="border: 1px solid var(--border); border-top: none; padding: 1rem 1.2rem;">
+              <dt style="font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem;">Issueベース開発によるタスク管理</dt>
+              <dd style="font-size: 0.88rem; color: #555; line-height: 1.75; margin: 0;">実装したい機能や改善点が頭の中で散漫になりがちなため、GitHubのIssue機能をTodoリストとして活用する開発フローを取り入れました。個人開発ではありますが、就職後のチーム開発を見越してIssue・Pull Requestを使った開発を意識的に経験するようにしました。</dd>
+            </div>
+
+          </dl>
         </div>
       </div>
     </div>
