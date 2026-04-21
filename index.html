@@ -6,375 +6,7 @@
   <title>Portfolio | Kaito Yasuda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #fafaf8;
-      --text: #1a1a1a;
-      --muted: #888;
-      --accent: #2a5caa;
-      --border: #e4e4e0;
-      --card: #ffffff;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Noto Serif JP', serif;
-      font-weight: 300;
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    /* ── HEADER ── */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250,250,248,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    nav a {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 2rem;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--text); }
-
-    /* ── LAYOUT ── */
-    main { padding-top: 56px; }
-
-    section {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 80px 2rem;
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 400;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-
-    p { color: #3a3a3a; margin-bottom: 1rem; }
-    p:last-child { margin-bottom: 0; }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: calc(100vh - 56px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .hero-sub {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      max-width: 540px;
-      color: #4a4a4a;
-      margin-bottom: 2.5rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-decoration: none;
-      border: 1px solid var(--accent);
-      padding: 0.6rem 1.4rem;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn:hover { background: var(--accent); color: white; }
-
-    /* ── STRENGTH ── */
-    .strength-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 1.5rem;
-    }
-
-    .strength-item {
-      background: var(--card);
-      padding: 1.4rem;
-    }
-
-    .strength-icon {
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .strength-title {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-    }
-
-    .strength-desc {
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* ── SKILLS ── */
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 1px;
-    }
-
-    .skill-item {
-      background: var(--card);
-      padding: 1.2rem 1.4rem;
-    }
-
-    .skill-cat {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 0.2rem 0.55rem;
-      color: var(--text);
-    }
-
-    /* ── WORKS ── */
-    .work-card {
-      border: 1px solid var(--border);
-      background: var(--card);
-      margin-bottom: 2rem;
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-    .work-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
-
-    .work-header {
-      padding: 1.8rem 2rem 1.4rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .work-meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .work-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .work-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      background: var(--accent);
-      color: white;
-      padding: 0.15rem 0.6rem;
-    }
-
-    .work-title {
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin-bottom: 0.6rem;
-    }
-
-    .work-desc { font-size: 0.93rem; color: #555; margin-bottom: 0; }
-
-    .work-body { padding: 1.4rem 2rem 1.8rem; }
-
-    .work-section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .work-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .work-features { margin-bottom: 1.4rem; }
-
-    .work-features ul { list-style: none; padding: 0; }
-
-    .work-features li {
-      font-size: 0.9rem;
-      color: #444;
-      padding: 0.25rem 0 0.25rem 1rem;
-      position: relative;
-    }
-    .work-features li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--border);
-    }
-
-    .refactor-note {
-      background: #f5f5f2;
-      border-left: 2px solid var(--accent);
-      padding: 0.8rem 1.2rem;
-      margin-bottom: 1.4rem;
-      font-size: 0.88rem;
-      color: #555;
-      line-height: 1.7;
-    }
-    .refactor-note a { color: var(--accent); }
-
-    .work-links { display: flex; gap: 1rem; }
-
-    .work-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .work-link:hover { border-color: var(--accent); }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 1.5rem;
-    }
-
-    .about-item {
-      background: var(--card);
-      padding: 1.4rem;
-    }
-
-    .about-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .about-val { font-size: 0.92rem; color: #333; margin: 0; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 2.5rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-    }
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--text); }
-
-    /* ── FADE IN ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 600px) {
-      .about-grid, .strength-grid { grid-template-columns: 1fr; }
-      nav a { margin-left: 1rem; }
-      .work-header, .work-body { padding-left: 1.2rem; padding-right: 1.2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -576,6 +208,33 @@
         </div>
 
         <div style="margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--border);">
+          <p class="work-section-label">設計ドキュメント</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border);">
+            <div style="background: var(--card); padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.6rem;">
+              <p style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin: 0;">テーブル定義書</p>
+              <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.6;">テーブル構造・カラム定義・リレーションをまとめたスプレッドシートです。</p>
+              <a href="https://docs.google.com/spreadsheets/d/1-H4M0LD-6WiTapgkK1BNaIZq8mF_2GkkHkKrBK8WQY8/edit?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 0.4rem 0.8rem; width: fit-content; transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='white';" onmouseout="this.style.background='';this.style.color='var(--accent)';">Google Sheets で開く →</a>
+            </div>
+            <div style="background: var(--card); padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.6rem;">
+              <p style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin: 0;">テスト仕様書</p>
+              <p style="font-size: 0.88rem; color: #555; margin: 0; line-height: 1.6;">PHP素描き版のテスト仕様書です（Laravel版のテスト仕様書は現在未完成）。</p>
+              <a href="https://docs.google.com/spreadsheets/d/11X4_Hsr9IE6ipQLv1BW6WoUgGWmN8Gpaqcm-onyXw-o/edit?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 0.4rem 0.8rem; width: fit-content; transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='white';" onmouseout="this.style.background='';this.style.color='var(--accent)';">Google Sheets で開く →</a>
+            </div>
+          </div>
+
+          <div style="background: var(--bg); border: 1px solid var(--border); border-top: none; padding: 1rem 1.2rem;">
+            <p style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin: 0 0 0.75rem;">画面遷移図</p>
+            <img src="assets/images/screen_transition.png" alt="画面遷移図" class="zoomable" style="width: 100%; display: block; cursor: zoom-in;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display: none; align-items: center; justify-content: center; min-height: 140px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; flex-direction: column; gap: 0.4rem; background: var(--card); border: 1px solid var(--border);">
+              <span style="font-size: 1.4rem;">🖼️</span>
+              <span>screen_transition.png</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--border);">
           <p class="work-section-label">工夫した点・苦労した点</p>
           <dl style="margin: 0;">
 
@@ -736,52 +395,6 @@
   &nbsp;·&nbsp;
   <span>Kaito Yasuda</span>
 </footer>
-
-<style>
-  /* ── MODAL ── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    cursor: zoom-out;
-  }
-  .modal-overlay.active { display: flex; }
-
-  .modal-img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    box-shadow: 0 8px 48px rgba(0,0,0,0.4);
-    cursor: default;
-  }
-
-  .modal-close {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.4rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    background: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .modal-close:hover { color: white; border-color: white; }
-
-  img.zoomable {
-    cursor: zoom-in;
-    transition: opacity 0.15s;
-  }
-  img.zoomable:hover { opacity: 0.85; }
-</style>
 
 <!-- Modal overlay -->
 <div class="modal-overlay" id="imgModal">
