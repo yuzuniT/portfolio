@@ -301,7 +301,7 @@ p:last-child { margin-bottom: 0; }
 }
 .refactor-note a { color: var(--accent); }
 
-.work-links { display: flex; gap: 1rem; }
+.work-links { display: flex; gap: 1rem; margin-bottom: 0.5rem; }
 
 .work-link {
   font-family: 'DM Mono', monospace;
@@ -313,6 +313,14 @@ p:last-child { margin-bottom: 0; }
   transition: border-color 0.2s;
 }
 .work-link:hover { border-color: var(--accent); }
+
+/* ── WORK LINK DISABLED ── */
+.work-link--disabled {
+  color: var(--muted);
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
 
 /* ── ABOUT ── */
 .about-grid {
